@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saikumar Biradar — Full Stack Developer</title>
+  <meta name="description" content="Saikumar Biradar — Computer Engineering student at SPPU and Full Stack Developer specializing in the Java and MERN ecosystems. Explore projects, skills, and experience." />
+  <meta name="keywords" content="Saikumar Biradar, Full Stack Developer, MERN Stack Developer, Java Developer, SPPU, Portfolio" />
+  <meta name="author" content="Saikumar Biradar" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Saikumar Biradar — Full Stack Developer" />
+  <meta property="og:description" content="Computer Engineering student and Full Stack Developer building end-to-end products with Java and the MERN stack." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/og-image.png" />
+
+  <!-- Favicon placeholder -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%2300E5FF%22>S</text></svg>" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===================== LOADING SCREEN ===================== -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <svg class="loader-mark" viewBox="0 0 64 64" fill="none">
+        <circle cx="32" cy="32" r="28" stroke="url(#loaderGrad)" stroke-width="2" stroke-dasharray="10 8" />
+        <text x="32" y="40" text-anchor="middle" font-family="Space Grotesk" font-size="24" fill="#00E5FF">S</text>
+        <defs>
+          <linearGradient id="loaderGrad" x1="0" y1="0" x2="64" y2="64">
+            <stop offset="0%" stop-color="#00E5FF" />
+            <stop offset="100%" stop-color="#8B5CF6" />
+          </linearGradient>
+        </defs>
+      </svg>
+      <p class="loader-label">compiling<span class="loader-dots"><span>.</span><span>.</span><span>.</span></span></p>
+    </div>
+  </div>
+
+  <!-- ===================== CUSTOM CURSOR ===================== -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+  <canvas id="mouseGlow" class="mouse-glow"></canvas>
+
+  <!-- ===================== SCROLL PROGRESS ===================== -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ===================== PARTICLE BACKGROUND ===================== -->
+  <canvas id="particleCanvas" class="particle-canvas"></canvas>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header class="navbar" id="navbar">
+    <nav class="nav-inner">
+      <a href="#home" class="nav-logo" data-cursor-hover>
+        <span class="logo-bracket">&lt;</span>SB<span class="logo-bracket">/&gt;</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+        <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+        <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+        <li><a href="#timeline" class="nav-link" data-section="timeline">Journey</a></li>
+        <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+        <li><a href="#certifications" class="nav-link" data-section="certifications">Certs</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+      </ul>
+
+      <a href="#contact" class="nav-cta" data-cursor-hover>Let's Talk</a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="mainContent">
+
+    <!-- ===================== HOME / HERO ===================== -->
+    <section class="hero" id="home">
+      <div class="hero-grid-overlay" aria-hidden="true"></div>
+
+      <div class="container hero-container">
+        <div class="hero-text reveal-up">
+          <p class="hero-eyebrow"><span class="eyebrow-dot"></span>Available for opportunities</p>
+
+          <h1 class="hero-title">
+            <span class="hero-line hero-greeting">Hello, I'm</span>
+            <span class="hero-line hero-name gradient-text">Saikumar Biradar</span>
+          </h1>
+
+          <div class="hero-role">
+            <span class="role-prefix">I build as a</span>
+            <span class="typing-wrap">
+              <span id="typingText" class="typing-text"></span><span class="typing-cursor">|</span>
+            </span>
+          </div>
+
+          <p class="hero-desc">
+            Computer Engineering student at SPPU, turning coffee and curiosity into full-stack
+            products &mdash; from Java-backed systems to end-to-end MERN applications.
+          </p>
+
+          <div class="hero-actions">
+            <a href="https://drive.google.com/file/d/1xsoYXRu9YSRA0xczUbHmx5qBY4vTz78V/view?usp=drivesdk" target="_blank" rel="noopener" class="btn btn-primary ripple" data-cursor-hover>
+              <span>Download Resume</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1v10M8 11l-4-4M8 11l4-4M2 14h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="#projects" class="btn btn-ghost ripple" data-cursor-hover>
+              <span>View Projects</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+
+          <div class="hero-socials">
+            <a href="https://www.linkedin.com/in/saikumar-biradar972?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_android" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn" data-cursor-hover>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+            </a>
+            <a href="https://github.com/saikumarmh10" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub" data-cursor-hover>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12.02c0 5.05 3.29 9.33 7.85 10.84.57.1.78-.25.78-.55v-2.15c-3.19.7-3.87-1.36-3.87-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.04-.72.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.24 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.07.78 2.16v3.2c0 .3.2.66.79.55A11.53 11.53 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z"/></svg>
+            </a>
+            <a href="mailto:saikumarbiradar972@example.com" class="social-icon" aria-label="Email" data-cursor-hover>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="16" rx="2.5"/><path d="M2.5 5.5l9.5 7 9.5-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal-up" style="--delay:0.15s">
+          <div class="photo-orbit-ring"></div>
+          <div class="photo-orbit-ring ring-2"></div>
+          <div class="photo-frame tilt-el">
+            <img class="photo-img" src="assets/profile.jpg" alt="Portrait of Saikumar Biradar" width="580" height="700" loading="eager" />
+            <div class="photo-badge">
+              <span class="badge-dot"></span>
+              Open to work
+            </div>
+          </div>
+          <div class="floating-chip chip-1">&lt;/&gt; Java</div>
+          <div class="floating-chip chip-2">⚛ MERN</div>
+          <div class="floating-chip chip-3">🗄 MongoDB</div>
+        </div>
+      </div>
+
+      <a href="#about" class="scroll-indicator" aria-label="Scroll to about" data-cursor-hover>
+        <span class="scroll-mouse"><span class="scroll-wheel"></span></span>
+        <span class="scroll-label">Scroll</span>
+      </a>
+    </section>
+
+    <!-- ===================== ABOUT ===================== -->
+    <section class="section" id="about">
+      <div class="container">
+        <p class="section-eyebrow reveal-up">Get to know me</p>
+        <h2 class="section-title reveal-up">About <span class="gradient-text">Me</span></h2>
+
+        <div class="about-grid">
+          <div class="about-copy reveal-up">
+            <p>
+              I'm a Computer Engineering student at <strong>Savitribai Phule Pune University (SPPU)</strong>,
+              maintaining a <strong>CGPA of 8.66</strong> while building products that live outside the classroom.
+              I care about the whole stack &mdash; from the database schema to the pixel that renders it.
+            </p>
+            <p>
+              My core strength is a blend of <strong>Java</strong> for structured, reliable backends and the
+              <strong> MERN</strong> ecosystem for fast, modern web applications. I enjoy translating a rough idea
+              into a working, well-architected product &mdash; and I sweat the details that make software feel solid.
+            </p>
+            <p>
+              Outside of coursework, I've interned with product-focused teams, shipped personal projects end-to-end,
+              and I'm always chasing the next hard problem worth solving.
+            </p>
+
+            <div class="about-tags">
+              <span class="tag">Computer Engineering Student</span>
+              <span class="tag">SPPU</span>
+              <span class="tag">Full Stack Developer</span>
+              <span class="tag">Java &amp; MERN</span>
+            </div>
+          </div>
+
+          <div class="about-stats reveal-up" style="--delay:0.1s">
+            <div class="stat-card tilt-el">
+              <span class="stat-number" data-count="6" data-suffix="+">0</span>
+              <span class="stat-label">Projects Built</span>
+            </div>
+            <div class="stat-card tilt-el">
+              <span class="stat-number" data-count="2" data-suffix="">0</span>
+              <span class="stat-label">Internships</span>
+            </div>
+            <div class="stat-card tilt-el">
+              <span class="stat-number" data-count="15" data-suffix="+">0</span>
+              <span class="stat-label">Technologies</span>
+            </div>
+            <div class="stat-card tilt-el">
+              <span class="stat-number" data-count="8.66" data-suffix="" data-decimal="true">0</span>
+              <span class="stat-label">CGPA</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SKILLS ===================== -->
+    <section class="section section-alt" id="skills">
+      <div class="container">
+        <p class="section-eyebrow reveal-up">What I work with</p>
+        <h2 class="section-title reveal-up">Skills &amp; <span class="gradient-text">Tech Stack</span></h2>
+
+        <div class="skills-grid">
+
+          <div class="skill-card reveal-up">
+            <div class="skill-card-head">
+              <span class="skill-icon">⌨</span>
+              <h3>Programming Languages</h3>
+            </div>
+            <div class="skill-bars">
+              <div class="skill-bar" data-level="85"><span class="skill-name">Java</span><div class="bar-track"><div class="bar-fill"></div></div></div>
+              <div class="skill-bar" data-level="75"><span class="skill-name">Python</span><div class="bar-track"><div class="bar-fill"></div></div></div>
+              <div class="skill-bar" data-level="88"><span class="skill-name">JavaScript</span><div class="bar-track"><div class="bar-fill"></div></div></div>
+              <div class="skill-bar" data-level="70"><span class="skill-name">TypeScript</span><div class="bar-track"><div class="bar-fill"></div></div></div>
+              <div class="skill-bar" data-level="65"><span class="skill-name">C++</span><div class="bar-track"><div class="bar-fill"></div></div></div>
+            </div>
+          </div>
+
+          <div class="skill-card reveal-up" style="--delay:0.05s">
+            <div class="skill-card-head">
+              <span class="skill-icon">◧</span>
+              <h3>Frontend</h3>
+            </div>
+            <div class="skill-bars">
+              <div class="skill-bar" data-level="90"><span class="skill-name">HTML</span><div class="bar-track"><div class="bar-fill"></div></div></div>
+              <div class="skill-bar" data-level="85"><span class="skill-name">CSS</span><div class="bar-track"><div class="bar-fill"></div></div></div>
+              <div class="skill-bar" data-level="88"><span class="skill-name">JavaScript</span><div class="bar-track"><div class="bar-fill"></div></div></div>
+            </div>
+          </div>
+
+          <div class="skill-card reveal-up" style="--delay:0.1s">
+            <div class="skill-card-head">
+              <span class="skill-icon">⚙</span>
+              <h3>Backend</h3>
+            </div>
+            <div class="skill-bars">
+              <div class="skill-bar" data-level="82"><span class="skill-name">Node.js</span><div class="bar-track"><div class="bar-fill"></div></div></div>
+              <div class="skill-bar" data-level="80"><span class="skill-name">Express.js</span><div class="bar-track"><div class="bar-fill"></div></div></div>
+            </div>
+          </div>
+
+          <div class="skill-card reveal-up" style="--delay:0.15s">
+            <div class="skill-card-head">
+              <span class="skill-icon">🗄</span>
+              <h3>Databases</h3>
+            </div>
+            <div class="skill-bars">
+              <div class="skill-bar" data-level="82"><span class="skill-name">MongoDB</span><div class="bar-track"><div class="bar-fill"></div></div></div>
+              <div class="skill-bar" data-level="75"><span class="skill-name">MySQL</span><div class="bar-track"><div class="bar-fill"></div></div></div>
+              <div class="skill-bar" data-level="60"><span class="skill-name">PostgreSQL</span><div class="bar-track"><div class="bar-fill"></div></div></div>
+            </div>
+          </div>
+
+          <div class="skill-card reveal-up" style="--delay:0.2s">
+            <div class="skill-card-head">
+              <span class="skill-icon">🛠</span>
+              <h3>Tools</h3>
+            </div>
+            <div class="skill-bars">
+              <div class="skill-bar" data-level="85"><span class="skill-name">Git</span><div class="bar-track"><div class="bar-fill"></div></div></div>
+              <div class="skill-bar" data-level="85"><span class="skill-name">GitHub</span><div class="bar-track"><div class="bar-fill"></div></div></div>
+              <div class="skill-bar" data-level="55"><span class="skill-name">Docker</span><div class="bar-track"><div class="bar-fill"></div></div></div>
+              <div class="skill-bar" data-level="80"><span class="skill-name">Postman</span><div class="bar-track"><div class="bar-fill"></div></div></div>
+              <div class="skill-bar" data-level="90"><span class="skill-name">VS Code</span><div class="bar-track"><div class="bar-fill"></div></div></div>
+            </div>
+          </div>
+
+          <div class="skill-card reveal-up" style="--delay:0.25s">
+            <div class="skill-card-head">
+              <span class="skill-icon">☁</span>
+              <h3>Deployment</h3>
+            </div>
+            <div class="skill-bars">
+              <div class="skill-bar" data-level="78"><span class="skill-name">Netlify</span><div class="bar-track"><div class="bar-fill"></div></div></div>
+              <div class="skill-bar" data-level="78"><span class="skill-name">Vercel</span><div class="bar-track"><div class="bar-fill"></div></div></div>
+            </div>
+          </div>
+
+          <div class="skill-card reveal-up skill-card-wide" style="--delay:0.3s">
+            <div class="skill-card-head">
+              <span class="skill-icon">◈</span>
+              <h3>Core Concepts</h3>
+            </div>
+            <div class="concept-pills">
+              <span class="pill">REST API</span>
+              <span class="pill">JWT</span>
+              <span class="pill">OOP</span>
+              <span class="pill">DSA</span>
+              <span class="pill">DBMS</span>
+              <span class="pill">Operating Systems</span>
+              <span class="pill">Computer Networks</span>
+              <span class="pill">Software Engineering</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TIMELINE ===================== -->
+    <section class="section" id="timeline">
+      <div class="container">
+        <p class="section-eyebrow reveal-up">How I got here</p>
+        <h2 class="section-title reveal-up">My <span class="gradient-text">Journey</span></h2>
+
+        <div class="timeline">
+          <div class="timeline-line" aria-hidden="true"></div>
+
+          <div class="timeline-item reveal-up">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card tilt-el">
+              <span class="timeline-date">2023 &mdash; 2027</span>
+              <h3>B.E. in Computer Engineering</h3>
+              <p class="timeline-org">Savitribai Phule Pune University (SPPU)</p>
+              <p class="timeline-desc">Pursuing a bachelor's degree with a CGPA of 8.66, focused on software engineering, data structures, and full-stack development.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal-up" style="--delay:0.1s">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card tilt-el">
+              <span class="timeline-date">Internship</span>
+              <h3>Web Development Intern</h3>
+              <p class="timeline-org">Prodigy InfoTech</p>
+              <p class="timeline-desc">Built and shipped hands-on web development tasks, strengthening real-world JavaScript and full-stack fundamentals.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal-up" style="--delay:0.2s">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card tilt-el">
+              <span class="timeline-date">Internship</span>
+              <h3>Java Programming Intern</h3>
+              <p class="timeline-org">CodSoft</p>
+              <p class="timeline-desc">Delivered a series of web projects focused on responsive UI, JavaScript logic, and clean project structure.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROJECTS ===================== -->
+    <section class="section section-alt" id="projects">
+      <div class="container">
+        <p class="section-eyebrow reveal-up">Selected work</p>
+        <h2 class="section-title reveal-up">Featured <span class="gradient-text">Projects</span></h2>
+
+        <div class="project-filters reveal-up">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+          <button class="filter-btn" data-filter="frontend">Frontend</button>
+        </div>
+
+        <div class="projects-grid">
+
+          <article class="project-card tilt-el reveal-up" data-category="fullstack">
+            <div class="project-glow"></div>
+            <div class="project-media">
+              <div class="project-media-placeholder">
+                <span>Wanderly</span>
+              </div>
+              <div class="project-overlay">
+                <a href="https://github.com/saikumarmh10/tour-booking-platform" target="_blank" rel="noopener" class="icon-btn" aria-label="View source on GitHub" data-cursor-hover>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12.02c0 5.05 3.29 9.33 7.85 10.84.57.1.78-.25.78-.55v-2.15c-3.19.7-3.87-1.36-3.87-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.04-.72.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.24 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.07.78 2.16v3.2c0 .3.2.66.79.55A11.53 11.53 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z"/></svg>
+                </a>
+                <a href="https://tour-booking-platform.onrender.com" target="_blank" rel="noopener" class="icon-btn" aria-label="View live demo" data-cursor-hover>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3>Wanderly</h3>
+              <p class="project-tagline">Full-stack tour booking platform</p>
+              <p class="project-desc">
+                An end-to-end travel booking app with role-based auth, an admin dashboard, and
+                server-rendered views &mdash; built to handle real booking flows from search to checkout.
+              </p>
+              <div class="tech-badges">
+                <span class="badge">Node.js</span>
+                <span class="badge">Express</span>
+                <span class="badge">Pug</span>
+                <span class="badge">MongoDB</span>
+                <span class="badge">JWT</span>
+                <span class="badge">REST API</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/saikumarmh10/tour-booking-platform" target="_blank" rel="noopener" class="btn btn-sm btn-ghost ripple" data-cursor-hover>GitHub</a>
+                <a href="https://tour-booking-platform.onrender.com" target="_blank" rel="noopener" class="btn btn-sm btn-primary ripple" data-cursor-hover>Live Demo</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card tilt-el reveal-up" style="--delay:0.08s" data-category="fullstack">
+            <div class="project-glow"></div>
+            <div class="project-media">
+              <div class="project-media-placeholder">
+                <span>Library System</span>
+              </div>
+              <div class="project-overlay">
+                <a href="https://github.com/saikumarmh10/Library-Management-System-MERN" target="_blank" rel="noopener" class="icon-btn" aria-label="View source on GitHub" data-cursor-hover>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12.02c0 5.05 3.29 9.33 7.85 10.84.57.1.78-.25.78-.55v-2.15c-3.19.7-3.87-1.36-3.87-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.04-.72.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.24 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.07.78 2.16v3.2c0 .3.2.66.79.55A11.53 11.53 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z"/></svg>
+                </a>
+                <a href="https://library-management-system-mern-nu.vercel.app/" target="_blank" rel="noopener" class="icon-btn" aria-label="View live demo" data-cursor-hover>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3>Library Management System</h3>
+              <p class="project-tagline">Full-stack MERN library management app</p>
+              <p class="project-desc">
+                A full-stack library management system built on the MERN stack, handling
+                book inventory, member records, and issue/return tracking through a REST API.
+              </p>
+              <div class="tech-badges">
+                <span class="badge">React</span>
+                <span class="badge">Node.js</span>
+                <span class="badge">Express</span>
+                <span class="badge">MongoDB</span>
+                <span class="badge">REST API</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/saikumarmh10/Library-Management-System-MERN" target="_blank" rel="noopener" class="btn btn-sm btn-ghost ripple" data-cursor-hover>GitHub</a>
+                <a href="https://library-management-system-mern-nu.vercel.app/" target="_blank" rel="noopener" class="btn btn-sm btn-primary ripple" data-cursor-hover>Live Demo</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card tilt-el reveal-up" style="--delay:0.16s" data-category="frontend">
+            <div class="project-glow"></div>
+            <div class="project-media">
+              <div class="project-media-placeholder">
+                <span>Portfolio</span>
+              </div>
+              <div class="project-overlay">
+                <a href="https://github.com/saikumarmh10/portfolio" target="_blank" rel="noopener" class="icon-btn" aria-label="View source on GitHub" data-cursor-hover>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12.02c0 5.05 3.29 9.33 7.85 10.84.57.1.78-.25.78-.55v-2.15c-3.19.7-3.87-1.36-3.87-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.04-.72.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.24 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.07.78 2.16v3.2c0 .3.2.66.79.55A11.53 11.53 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z"/></svg>
+                </a>
+                <a href="#" target="_blank" rel="noopener" class="icon-btn" aria-label="View live demo" data-cursor-hover>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3>Personal Portfolio</h3>
+              <p class="project-tagline">This very website</p>
+              <p class="project-desc">
+                A fully custom, responsive portfolio built without any framework &mdash; hand-rolled
+                animations, a particle canvas, and scroll-driven interactions in vanilla JS.
+              </p>
+              <div class="tech-badges">
+                <span class="badge">HTML</span>
+                <span class="badge">CSS</span>
+                <span class="badge">JavaScript</span>
+                <span class="badge">Responsive</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/saikumarmh10/portfolio" target="_blank" rel="noopener" class="btn btn-sm btn-ghost ripple" data-cursor-hover>GitHub</a>
+                <a href="#" target="_blank" rel="noopener" class="btn btn-sm btn-primary ripple" data-cursor-hover>Live Demo</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CERTIFICATIONS ===================== -->
+    <section class="section" id="certifications">
+      <div class="container">
+        <p class="section-eyebrow reveal-up">Proof of work</p>
+        <h2 class="section-title reveal-up">Certifications</h2>
+
+        <div class="cert-grid">
+          <a href="https://drive.google.com/file/d/1gHtMFJcJl6-DZrVoP4g4HEnejuTSwzME/view?usp=drivesdk" target="_blank" rel="noopener" class="cert-card tilt-el reveal-up" data-cursor-hover>
+            <div class="cert-icon">🎓</div>
+            <h3>Java Programming</h3>
+            <p>CodSoft</p>
+          </a>
+          <a href="https://drive.google.com/file/d/1WJSmRGMZmpK52GAxQa0ZO7-PvijHTomL/view?usp=drivesdk" target="_blank" rel="noopener" class="cert-card tilt-el reveal-up" style="--delay:0.08s" data-cursor-hover>
+            <div class="cert-icon">🎓</div>
+            <h3>Web Development</h3>
+            <p>Prodigy InfoTech</p>
+          </a>
+          <a href="https://drive.google.com/file/d/1mBUnM7wnt-O2_DRGRLcENlFm5QVomA9W/view?usp=drivesdk" target="_blank" rel="noopener" class="cert-card tilt-el reveal-up" style="--delay:0.16s" data-cursor-hover>
+            <div class="cert-icon">🎓</div>
+            <h3>Web Development</h3>
+            <p>Hex Software</p>
+          </a>
+          <a href="https://drive.google.com/file/d/1d8amSTaIj-WOE--S2F9JtEhonXpBXtfd/view?usp=drivesdk" target="_blank" rel="noopener" class="cert-card tilt-el reveal-up" style="--delay:0.24s" data-cursor-hover>
+            <div class="cert-icon">🎓</div>
+            <h3>Agentic AI</h3>
+            <p>Certification</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ACHIEVEMENTS ===================== -->
+    <section class="section section-alt" id="achievements">
+      <div class="container">
+        <p class="section-eyebrow reveal-up">Milestones</p>
+        <h2 class="section-title reveal-up">Achievements</h2>
+
+        <div class="achieve-grid">
+          <div class="achieve-card reveal-up">
+            <span class="achieve-num">01</span>
+            <h3>8.66 CGPA</h3>
+            <p>Maintained a strong academic record throughout the Computer Engineering program at SPPU.</p>
+          </div>
+          <div class="achieve-card reveal-up" style="--delay:0.08s">
+            <span class="achieve-num">02</span>
+            <h3>Two Internships</h3>
+            <p>Completed development internships at CodSoft and Prodigy InfoTech, shipping real project work.</p>
+          </div>
+          <div class="achieve-card reveal-up" style="--delay:0.16s">
+            <span class="achieve-num">03</span>
+            <h3>Full-Stack Delivery</h3>
+            <p>Independently designed, built, and deployed Wanderly &mdash; a complete tour booking platform.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section class="section" id="contact">
+      <div class="container">
+        <p class="section-eyebrow reveal-up">Get in touch</p>
+        <h2 class="section-title reveal-up">Let's Build Something <span class="gradient-text">Great</span></h2>
+
+        <div class="contact-grid">
+          <div class="contact-form-wrap reveal-up">
+            <form class="contact-form" id="contactForm" novalidate>
+              <div class="form-row">
+                <div class="form-field">
+                  <input type="text" id="cName" name="name" placeholder=" " required />
+                  <label for="cName">Name</label>
+                  <span class="field-line"></span>
+                </div>
+                <div class="form-field">
+                  <input type="email" id="cEmail" name="email" placeholder=" " required />
+                  <label for="cEmail">Email</label>
+                  <span class="field-line"></span>
+                </div>
+              </div>
+              <div class="form-field">
+                <input type="text" id="cSubject" name="subject" placeholder=" " required />
+                <label for="cSubject">Subject</label>
+                <span class="field-line"></span>
+              </div>
+              <div class="form-field">
+                <textarea id="cMessage" name="message" rows="5" placeholder=" " required></textarea>
+                <label for="cMessage">Message</label>
+                <span class="field-line"></span>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block ripple" id="sendBtn" data-cursor-hover>
+                <span class="btn-text">Send Message</span>
+                <svg class="btn-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1 8l14-6-5 14-3-5-6-3z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+                <span class="btn-loader" aria-hidden="true"></span>
+              </button>
+              <p class="form-status" id="formStatus" role="status"></p>
+            </form>
+          </div>
+
+          <div class="contact-side reveal-up" style="--delay:0.1s">
+            <div class="contact-info-card">
+              <h3>Direct Contact</h3>
+              <a href="mailto:saikumarbiradar972@example.com" class="contact-row" data-cursor-hover>
+                <span class="contact-icon">✉</span> saikumarbiradar972@example.com
+              </a>
+              <a href="https://www.linkedin.com/in/saikumar-biradar972?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_android" target="_blank" rel="noopener" class="contact-row" data-cursor-hover>
+                <span class="contact-icon">in</span> linkedin.com/in/saikumar-biradar972
+              </a>
+              <a href="https://github.com/saikumarmh10" target="_blank" rel="noopener" class="contact-row" data-cursor-hover>
+                <span class="contact-icon">gh</span> github.com/saikumarmh10
+              </a>
+            </div>
+
+            <div class="map-placeholder">
+           <div class="map-wrapper">
+    <iframe
+        src="https://www.google.com/maps?q=Pune,Maharashtra,India&output=embed"
+        width="100%"
+        height="300"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a href="#home" class="nav-logo" data-cursor-hover>
+        <span class="logo-bracket">&lt;</span>SB<span class="logo-bracket">/&gt;</span>
+      </a>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/saikumar-biradar972?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_android" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn" data-cursor-hover>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+        </a>
+        <a href="https://github.com/saikumarmh10" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub" data-cursor-hover>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12.02c0 5.05 3.29 9.33 7.85 10.84.57.1.78-.25.78-.55v-2.15c-3.19.7-3.87-1.36-3.87-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.04-.72.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.24 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.07.78 2.16v3.2c0 .3.2.66.79.55A11.53 11.53 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z"/></svg>
+        </a>
+        <a href="mailto:saikumarbiradar972@example.com" class="social-icon" aria-label="Email" data-cursor-hover>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="16" rx="2.5"/><path d="M2.5 5.5l9.5 7 9.5-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <p class="footer-copy">© <span id="year"></span> Saikumar Biradar. Built from scratch, no framework.</p>
+    </div>
+  </footer>
+
+  <!-- ===================== FLOATING ACTION BUTTONS ===================== -->
+  <button class="fab back-to-top" id="backToTop" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M8 13V3M3 7l5-5 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
